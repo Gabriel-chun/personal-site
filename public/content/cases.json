@@ -99,15 +99,17 @@
     "status": "live",
     "statusLabel": "Demo",
     "domain": "工作資訊整理 · Trace",
-    "question": "如何從口語的工作更新，走到可以追蹤的工作狀態？",
-    "method": "保留語境、辨認依賴關係，讓口語更新形成可維護的工作資料。",
+    "question": "如何從婚禮／活動情境的自然語言，整理出可追蹤的工作資料？",
+    "method": "辨認人物、期限、決策與待確認事項，再整理成可追蹤的工作資料結構。",
     "evidence": [
-      "線上 Demo 可直接操作"
+      "線上 Demo 可直接操作",
+      "展示能力：資訊抽取、人工核對、任務與狀態交接"
     ],
     "flow": [
-      "口語更新",
-      "辨認依賴",
-      "工作狀態"
+      "自然語言",
+      "人物／期限／決策",
+      "待確認",
+      "工作資料"
     ],
     "limits": [
       "目前是示範版本"
@@ -123,14 +125,15 @@
     "id": "content-research",
     "code": "CASE-05",
     "featured": false,
-    "title": "Content Research",
+    "title": "Content Research / Work Method",
     "status": "live",
     "statusLabel": "Demo",
     "domain": "內容研究 · Trace",
     "question": "先自然地說，然後怎麼把事情接回脈絡？",
-    "method": "用可讀的狀態視角，理解不同工作線目前在哪裡。",
+    "method": "讓隨機、混雜的口語資料先被保留，再依工作線重新整理脈絡與狀態，避免過早把所有內容簡化成待辦。",
     "evidence": [
-      "線上 Demo 可直接操作"
+      "線上 Demo 可直接操作",
+      "展示能力：脈絡整理、狀態映射、研究資訊架構"
     ],
     "flow": [
       "自然口述",
@@ -144,6 +147,67 @@
       {
         "label": "看 Demo",
         "href": "https://content-research-demo.gabrielchun336.workers.dev/"
+      }
+    ]
+  },
+  {
+    "id": "thought-flow-07",
+    "code": "CASE-06",
+    "featured": false,
+    "title": "Thought Flow Profile 07",
+    "status": "live",
+    "statusLabel": "Demo",
+    "domain": "語意工作流 · Trace",
+    "question": "從原始口語捕捉到可交付成果，中間哪些步驟不能省？",
+    "method": "公開安全的語意工作流展示：原始捕捉 → 語意分段 → 歧義確認 → 可交付成果，並延伸至 Transcript Lab。",
+    "evidence": [
+      "線上展示頁可直接瀏覽",
+      "展示能力：逐字稿品質、語意確認、研究與交付流程"
+    ],
+    "flow": [
+      "原始捕捉",
+      "語意分段",
+      "歧義確認",
+      "交付"
+    ],
+    "limits": [
+      "使用去識別化或模擬材料"
+    ],
+    "links": [
+      {
+        "label": "看展示",
+        "href": "https://thought-flow-profile-07.chungkang.chatgpt.site/#work"
+      }
+    ]
+  },
+  {
+    "id": "global-project-overview",
+    "code": "CASE-07",
+    "featured": false,
+    "title": "Global Project Overview",
+    "status": "iterate",
+    "statusLabel": "原型",
+    "domain": "UX 研究 · 資訊架構 · Design System",
+    "question": "如何讓跨專案的自然對話，變成能追溯、比較、重新進入的個人知識介面？",
+    "method": "把每日自然語言快照整理成有穩定 ID 的語意節點、時間軸與版本比較；閱讀優先、Focus + Context 互動，只呈現資料中明確記錄的關係。",
+    "evidence": [
+      "44 條初始快照主線（Threads）",
+      "2 個已用於結構驗證的 JSON 版本",
+      "程式層級檢查 10/10 通過"
+    ],
+    "flow": [
+      "自然對話",
+      "穩定 ID",
+      "版本快照",
+      "脈絡閱讀"
+    ],
+    "limits": [
+      "跨裝置行為、完整瀏覽器 QA、可用性測試與長期使用成效仍待驗證"
+    ],
+    "links": [
+      {
+        "label": "完整案例簡報",
+        "href": "/work/gpo/"
       }
     ]
   }

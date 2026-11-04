@@ -2,78 +2,270 @@
   "updated": "2026-11-04",
   "note": "只放已公開、精選過的想法。關係只畫這裡明寫的，不自動推論。",
   "statuses": {
-    "observe":   { "label": "觀察",   "order": 0 },
-    "research":  { "label": "研究中", "order": 1 },
-    "prototype": { "label": "原型",   "order": 2 },
-    "published": { "label": "已發表", "order": 3 }
+    "observe": {
+      "label": "觀察",
+      "order": 0
+    },
+    "research": {
+      "label": "研究中",
+      "order": 1
+    },
+    "prototype": {
+      "label": "原型",
+      "order": 2
+    },
+    "published": {
+      "label": "已發表",
+      "order": 3
+    }
   },
   "groups": {
-    "method":      { "label": "方法 · Control Room" },
-    "application": { "label": "應用 · Next Stop Live" },
-    "practice":    { "label": "實戰 · Observer Engine" }
+    "method": {
+      "label": "方法 · Control Room"
+    },
+    "application": {
+      "label": "應用 · Next Stop Live"
+    },
+    "practice": {
+      "label": "實戰 · Observer Engine"
+    }
   },
   "lenses": [
-    { "id": "decision",  "label": "決策",    "desc": "在不完整資訊、時間限制與風險下做判斷，並用實戰檢驗。" },
-    { "id": "translate", "label": "轉譯",    "desc": "把經驗、知識與觀察，變成其他人能理解的內容。" },
-    { "id": "research",  "label": "研究",    "desc": "蒐集來源、交叉比對、整理問題與脈絡。" },
-    { "id": "ai",        "label": "AI 邊界", "desc": "思考可靠性、治理與人工審核在哪裡不可少。" },
-    { "id": "forming",   "label": "形成中",  "desc": "探索不同能力如何整合，持續更新思考脈絡。" }
+    {
+      "id": "decision",
+      "label": "決策",
+      "desc": "在不完整資訊、時間限制與風險下做判斷，並用實戰檢驗。"
+    },
+    {
+      "id": "translate",
+      "label": "轉譯",
+      "desc": "把經驗、知識與觀察，變成其他人能理解的內容。"
+    },
+    {
+      "id": "research",
+      "label": "研究",
+      "desc": "蒐集來源、交叉比對、整理問題與脈絡。"
+    },
+    {
+      "id": "ai",
+      "label": "AI 邊界",
+      "desc": "思考可靠性、治理與人工審核在哪裡不可少。"
+    },
+    {
+      "id": "forming",
+      "label": "形成中",
+      "desc": "探索不同能力如何整合，持續更新思考脈絡。"
+    }
   ],
   "ideas": [
-    { "id": "cr-continuity", "group": "method", "status": "prototype", "updated": "2026-11-04",
+    {
+      "id": "cr-continuity",
+      "group": "method",
+      "status": "prototype",
+      "updated": "2026-11-04",
       "label": "不用一直盯著，工作也能延續",
       "desc": "Continuity without constant attention：研究和決策不該因為一段時間沒碰就斷掉。",
-      "lenses": ["research", "forming"], "outcomes": ["control-room"] },
-    { "id": "cr-evidence", "group": "method", "status": "prototype", "updated": "2026-11-04",
+      "lenses": [
+        "research",
+        "forming"
+      ],
+      "outcomes": [
+        "control-room"
+      ]
+    },
+    {
+      "id": "cr-evidence",
+      "group": "method",
+      "status": "prototype",
+      "updated": "2026-11-04",
       "label": "先證據，後推論",
       "desc": "AI 提出的推論在本人確認前一律是「待確認」，不能因為畫面上連在一起就升格成事實。",
-      "lenses": ["ai", "research"], "outcomes": ["control-room", "observer-engine"] },
-    { "id": "cr-layers", "group": "method", "status": "prototype", "updated": "2026-11-04",
+      "lenses": [
+        "ai",
+        "research"
+      ],
+      "outcomes": [
+        "control-room",
+        "observer-engine"
+      ]
+    },
+    {
+      "id": "cr-layers",
+      "group": "method",
+      "status": "prototype",
+      "updated": "2026-11-04",
       "label": "工具入口 → 全域總覽 → 角色延續",
       "desc": "三層同一個工作空間：從哪裡開始、專案走到哪、每個視角最近在想什麼。",
-      "lenses": ["forming", "translate"], "outcomes": ["control-room"] },
-    { "id": "second-brain", "group": "method", "status": "research", "updated": "2026-11-04",
+      "lenses": [
+        "forming",
+        "translate"
+      ],
+      "outcomes": [
+        "control-room"
+      ]
+    },
+    {
+      "id": "second-brain",
+      "group": "method",
+      "status": "research",
+      "updated": "2026-11-04",
       "label": "為什麼不想再建一個第二大腦",
       "desc": "收集更多資料不等於想得更清楚；重點是讓判斷可以被回看和修正。",
-      "lenses": ["translate", "research"], "outcomes": ["w-second-brain"] },
-    { "id": "define-problem", "group": "method", "status": "research", "updated": "2026-11-04",
+      "lenses": [
+        "translate",
+        "research"
+      ],
+      "outcomes": [
+        "w-second-brain"
+      ]
+    },
+    {
+      "id": "define-problem",
+      "group": "method",
+      "status": "research",
+      "updated": "2026-11-04",
       "label": "定義問題，比學會工具更重要",
       "desc": "AI 工具換得很快，能留下來的是把問題問對的能力。",
-      "lenses": ["ai", "forming"], "outcomes": ["w-define-problem"] },
-    { "id": "nsl-signal", "group": "application", "status": "prototype", "updated": "2026-11-04",
+      "lenses": [
+        "ai",
+        "forming"
+      ],
+      "outcomes": [
+        "w-define-problem"
+      ]
+    },
+    {
+      "id": "nsl-signal",
+      "group": "application",
+      "status": "prototype",
+      "updated": "2026-11-04",
       "label": "公開討論 → 人工審查的訊號",
       "desc": "Signal Deck：從公開的演唱會討論整理出每日訊號，再由人標記相關或不相關。",
-      "lenses": ["research", "ai"], "outcomes": ["next-stop-live"] },
-    { "id": "nsl-lastmile", "group": "application", "status": "research", "updated": "2026-11-04",
+      "lenses": [
+        "research",
+        "ai"
+      ],
+      "outcomes": [
+        "next-stop-live"
+      ]
+    },
+    {
+      "id": "nsl-lastmile",
+      "group": "application",
+      "status": "research",
+      "updated": "2026-11-04",
       "label": "散場之後，怎麼回去？",
       "desc": "活動結束時間、交通管制和末班車，是樂迷最常卡住的地方。",
-      "lenses": ["translate", "decision"], "outcomes": ["next-stop-live"] },
-    { "id": "nsl-intercity", "group": "application", "status": "observe", "updated": "2026-11-04",
+      "lenses": [
+        "translate",
+        "decision"
+      ],
+      "outcomes": [
+        "next-stop-live"
+      ]
+    },
+    {
+      "id": "nsl-intercity",
+      "group": "application",
+      "status": "observe",
+      "updated": "2026-11-04",
       "label": "跨城市看演出的往返安排",
       "desc": "把演出時間和車次放在一起看，還要留下散場與延誤的緩衝。",
-      "lenses": ["decision"], "outcomes": ["next-stop-live"] },
-    { "id": "nsl-stay", "group": "application", "status": "observe", "updated": "2026-11-04",
+      "lenses": [
+        "decision"
+      ],
+      "outcomes": [
+        "next-stop-live"
+      ]
+    },
+    {
+      "id": "nsl-stay",
+      "group": "application",
+      "status": "observe",
+      "updated": "2026-11-04",
       "label": "散場後要不要多留一晚",
       "desc": "比較返程時間、住宿位置與取消條件。",
-      "lenses": ["decision"], "outcomes": ["next-stop-live"] },
-    { "id": "nsl-notes", "group": "application", "status": "observe", "updated": "2026-11-04",
+      "lenses": [
+        "decision"
+      ],
+      "outcomes": [
+        "next-stop-live"
+      ]
+    },
+    {
+      "id": "nsl-notes",
+      "group": "application",
+      "status": "observe",
+      "updated": "2026-11-04",
       "label": "從一首歌走到現場的探索筆記",
       "desc": "聽見 → 延伸 → 抵達 → 回看，記錄音樂怎麼把人帶到下一站。",
-      "lenses": ["translate"], "outcomes": ["next-stop-live"] },
-    { "id": "nsl-jpkr", "group": "application", "status": "observe", "updated": "2026-11-04",
+      "lenses": [
+        "translate"
+      ],
+      "outcomes": [
+        "next-stop-live"
+      ]
+    },
+    {
+      "id": "nsl-jpkr",
+      "group": "application",
+      "status": "observe",
+      "updated": "2026-11-04",
       "label": "日韓演出與跨國音樂旅程",
       "desc": "從台灣樂迷出發，之後延伸到日韓演出的資訊需求。",
-      "lenses": ["research"], "outcomes": ["next-stop-live"] },
-    { "id": "oe-snapshot", "group": "practice", "status": "prototype", "updated": "2026-11-04",
+      "lenses": [
+        "research"
+      ],
+      "outcomes": [
+        "next-stop-live"
+      ]
+    },
+    {
+      "id": "oe-snapshot",
+      "group": "practice",
+      "status": "prototype",
+      "updated": "2026-11-04",
       "label": "每次判斷都留下不可變快照",
       "desc": "牌表 → 對照 Scryfall 核對 → 人工確認 → 快照，讓實戰判斷有來源可回看。",
-      "lenses": ["decision", "ai"], "outcomes": ["observer-engine"] }
+      "lenses": [
+        "decision",
+        "ai"
+      ],
+      "outcomes": [
+        "observer-engine"
+      ]
+    }
   ],
   "outcomes": [
-    { "id": "control-room",     "type": "case",    "label": "Control Room",     "href": "/work/view/?id=control-room" },
-    { "id": "next-stop-live",   "type": "case",    "label": "Next Stop Live",   "href": "/work/view/?id=next-stop-live" },
-    { "id": "observer-engine",  "type": "case",    "label": "Observer Engine",  "href": "/work/view/?id=observer-engine" },
-    { "id": "w-second-brain",   "type": "writing", "label": "札記：第二大腦",     "href": "/writing/view/?id=second-brain" },
-    { "id": "w-define-problem", "type": "writing", "label": "札記：定義問題",     "href": "/writing/view/?id=define-problem" }
+    {
+      "id": "control-room",
+      "type": "case",
+      "label": "Control Room",
+      "href": "/work/view/?id=control-room"
+    },
+    {
+      "id": "next-stop-live",
+      "type": "case",
+      "label": "Next Stop Live",
+      "href": "/work/view/?id=next-stop-live"
+    },
+    {
+      "id": "observer-engine",
+      "type": "case",
+      "label": "Observer Engine",
+      "href": "/work/view/?id=observer-engine"
+    },
+    {
+      "id": "w-second-brain",
+      "type": "writing",
+      "label": "札記：第二大腦",
+      "href": "/writing/view/?id=second-brain"
+    },
+    {
+      "id": "w-define-problem",
+      "type": "writing",
+      "label": "札記：定義問題",
+      "href": "/writing/view/?id=define-problem"
+    }
   ]
 }
