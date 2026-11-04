@@ -10,14 +10,14 @@ export function load(name){
   return cache.get(name);
 }
 
-const NAV = [['work','Work','/work/'],['writing','Writing','/writing/'],['about','About','/about/']];
+const NAV = [['work','作品','/work/'],['writing','札記','/writing/'],['services','合作','/services/'],['about','關於','/about/']];
 
 function header(){
   const page = document.body.dataset.page;
   const el = document.createElement('header');
   el.className = 'top';
   el.innerHTML = `<div class="wrap">
-    <a class="brand" href="/">Gabriel Chun<small>Research · Design · Systems</small></a>
+    <a class="brand" href="/" aria-label="Gabriel Chun · Trace 首頁"><span class="mark" aria-hidden="true">t</span><span><b>Gabriel Chun <span>· Trace</span></b><small>Research · Design · Systems</small></span></a>
     <nav class="nav" aria-label="主要導覽">
       <ul id="nav-list">${NAV.map(([id,label,href]) => `<li><a href="${href}"${id===page?' aria-current="page"':''}>${label}</a></li>`).join('')}</ul>
       <button class="icon-btn" id="theme-btn" aria-label="切換深淺色">◐</button>
@@ -40,7 +40,7 @@ function header(){
 function footer(){
   const f = document.createElement('footer');
   f.className = 'site';
-  f.innerHTML = `<div class="wrap"><span>© 2026 Gabriel Chun · 內容來源：GitHub</span><span>本站不使用追蹤，也不蒐集訪客個人資料。</span></div>`;
+  f.innerHTML = `<div class="wrap"><span>© 2026 Gabriel Chun · Trace · 內容來源：GitHub</span><span>本站不使用追蹤，也不蒐集訪客個人資料。</span></div>`;
   document.body.append(f);
 }
 try{ const t = localStorage.getItem('theme'); if(t) document.documentElement.dataset.theme = t; }catch(e){}

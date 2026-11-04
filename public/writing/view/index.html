@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>札記 · Gabriel Chun</title>
+<title>札記 · Gabriel Chun · Trace</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <style>
 .article{max-width:680px;margin:0 auto;padding-bottom:80px}
 .article .body{font-size:17px;line-height:1.95}
-.article .body h2{font-family:"Noto Serif TC",serif;font-size:24px;margin:40px 0 12px}
+.article .body h2{font-size:20px;margin:40px 0 12px}
 .article .body blockquote{margin:24px 0;padding-left:18px;border-left:2px solid var(--accent);color:var(--muted)}
 </style>
 </head>
@@ -31,7 +31,7 @@ const md = s => esc(s).split(/\n{2,}/).map(b => {
 Promise.all([load('writing.json'), load('ideas.json')]).then(async ([ws, d]) => {
   const w = ws.find(x => x.id === id);
   if (!w) { el.innerHTML = '<div class="page-head"><h1 class="serif">找不到這篇札記。</h1><p><a href="/writing/">回到札記</a></p></div>'; return; }
-  document.title = w.title + ' · Gabriel Chun';
+  document.title = w.title + ' · Gabriel Chun · Trace';
   const idea = d.ideas.find(i => i.id === w.idea);
   const body = w.file ? md(await load('writing/' + w.file)) : `<p class="muted">這篇還在撰寫中。它源自的想法目前狀態是「${esc(STATUS[w.status])}」，寫好後會出現在這裡。</p>`;
   el.innerHTML = `<div class="page-head"><p class="eyebrow">${esc(w.category)} · ${esc(w.date)}</p><h1 class="serif">${esc(w.title)}</h1>

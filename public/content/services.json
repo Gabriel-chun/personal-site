@@ -1,0 +1,42 @@
+{
+  "intro": {
+    "title": "讓資訊不只被收集，而是真的可以使用。",
+    "desc": "每一項合作都從你已經有的材料開始。不要求你先整理好，我們一起確認問題、界線與可交付的成果。"
+  },
+  "services": [
+    {
+      "title": "逐字稿與訪談整理",
+      "tags": ["逐字稿校對", "語意分段", "訪談編碼"],
+      "desc": "把錄音轉寫、對話或訪談材料整理成主題、重點、引述與待確認資訊；保留說話者原意，不擅自補上不存在的結論。"
+    },
+    {
+      "title": "脈絡訪查與研究報告",
+      "tags": ["資料蒐集", "脈絡查核", "研究簡報"],
+      "desc": "整合分散來源、事件進展與不同觀點，製作可以追溯依據的脈絡整理、比較分析或短篇研究報告。"
+    },
+    {
+      "title": "一對一工作協作",
+      "tags": ["線上協作", "工作流程", "網站原型"],
+      "desc": "陪你把模糊想法做成可操作的成果。例如規劃 GitHub、Notion、Cloudflare 的串接流程，協作建立個人網站、資料管理或內容工作流。"
+    }
+  ],
+  "howIWork": {
+    "title": "先把問題看清楚，再開始整理。",
+    "desc": "我習慣將原話、推論與尚未確認的部分分開，再與你對齊真正需要交付的結果。AI 可以加速整理，但判斷與核對不會省略。",
+    "steps": [
+      { "title": "聽懂材料", "desc": "從原始對話與文件開始，確認使用情境。" },
+      { "title": "拆解脈絡", "desc": "分辨事實、推論、歧義與缺少的資訊。" },
+      { "title": "共同確認", "desc": "對齊範圍、成果格式與可用的依據。" },
+      { "title": "交付可用的成果", "desc": "整理成報告、資料庫、網站或可繼續工作的流程。" }
+    ]
+  },
+  "contact": {
+    "email": "gabrielchun336@gmail.com",
+    "subject": "Trace / Collaboration",
+    "links": [
+      { "label": "Threads", "href": "https://www.threads.com/@nextstop.live" },
+      { "label": "Instagram", "href": "https://www.instagram.com/nextstop.live/" },
+      { "label": "GitHub", "href": "https://github.com/Gabriel-chun" }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>合作 · Gabriel Chun · Trace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body data-page="services">
+<main class="wrap" id="main"><p class="loading" style="padding-top:72px">讀取中…</p></main>
+<script type="module">
+import { load, esc, fail } from '/assets/site.js';
+const el = document.getElementById('main');
+load('services.json').then(d => {
+  const mail = `mailto:${d.contact.email}?subject=${encodeURIComponent(d.contact.subject)}`;
+  el.innerHTML = `
+  <div class="page-head"><p class="eyebrow">01 / What I can help with</p><h1>${esc(d.intro.title)}</h1><p>${esc(d.intro.desc)}</p></div>
+  <ul class="svc" style="margin-bottom:72px">${d.services.map((s, i) => `<li><span class="n">${String(i + 1).padStart(2, '0')}</span><div>
+    <h3>${esc(s.title)}</h3><div class="tags">${s.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div><p>${esc(s.desc)}</p></div></li>`).join('')}</ul>
+  <section class="block">
+    <p class="eyebrow">02 / How I work</p><h2 style="font-size:clamp(22px,2.6vw,26px);margin:0 0 10px">${esc(d.howIWork.title)}</h2>
+    <p class="muted" style="max-width:42em;margin:0 0 28px;font-size:14.5px">${esc(d.howIWork.desc)}</p>
+    <div class="flow4">${d.howIWork.steps.map((s, i) => `<div><div class="n">${String(i + 1).padStart(2, '0')}</div><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p></div>`).join('')}</div>
+  </section>
+  <section class="block" style="padding-bottom:96px">
+    <p class="eyebrow">03 / Contact</p><h2 style="font-size:clamp(22px,2.6vw,28px);margin:0 0 12px">帶著你手上的材料來就好。</h2>
+    <p class="muted" style="margin:0 0 24px;font-size:14.5px">還沒整理好也沒關係，我們先一起確認問題。</p>
+    <div class="btns" style="align-items:center"><a class="btn primary" href="${esc(mail)}">聊聊你的需求 ↗</a>
+    ${d.contact.links.map(l => `<a class="btn ghost" href="${esc(l.href)}" rel="noopener">${esc(l.label)} ↗</a>`).join('')}</div>
+  </section>`;
+}).catch(e => fail(el, e));
+</script>
+</body>
+</html>

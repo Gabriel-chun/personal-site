@@ -1,8 +1,11 @@
 [
   {
-    "id": "control-room", "code": "CASE-01", "featured": true,
+    "id": "control-room",
+    "code": "CASE-01",
+    "featured": true,
     "title": "Control Room",
-    "status": "live", "statusLabel": "運作中",
+    "status": "live",
+    "statusLabel": "運作中",
     "domain": "知識系統 · 互動設計",
     "question": "如何讓碎片化的研究與決策，在不用一直盯著的情況下持續累積？",
     "method": "工具入口、專案全域總覽（快照時間軸、閱讀路徑、關聯圖）、用五個視角延續日常想法的角色層，三頁共用同一個工作空間。",
@@ -11,14 +14,24 @@
       "AI 推論在本人確認前一律標示「待確認」",
       "設計規範與色票公開記錄在 README／DesignMD"
     ],
-    "flow": ["工具入口", "全域總覽", "角色延續"],
-    "limits": ["個人工作系統，尚未在其他人或團隊身上驗證", "公開版本只展示設計，不含真實私人資料"],
+    "flow": [
+      "工具入口",
+      "全域總覽",
+      "角色延續"
+    ],
+    "limits": [
+      "個人工作系統，尚未在其他人或團隊身上驗證",
+      "公開版本只展示設計，不含真實私人資料"
+    ],
     "links": []
   },
   {
-    "id": "next-stop-live", "code": "CASE-02", "featured": true,
+    "id": "next-stop-live",
+    "code": "CASE-02",
+    "featured": true,
     "title": "Next Stop Live",
-    "status": "explore", "statusLabel": "研究探索",
+    "status": "explore",
+    "statusLabel": "研究探索",
     "domain": "資料研究 · 內容策略",
     "question": "去看下一場演出之前，樂迷真正需要知道什麼？",
     "method": "從公開的 Threads 演唱會討論開始：清洗、去重、每日 Signal Deck、人工標記相關／不相關，再回推散場交通、跨城移動、住宿等真實需求。",
@@ -27,17 +40,34 @@
       "不登入、不繞過 CAPTCHA、不用代理；也明說這不是官方 API",
       "事故、修正與 code review 都公開記錄在 CHANGELOG"
     ],
-    "flow": ["公開討論", "Signal Deck", "人工審查", "內容需求"],
-    "limits": ["採集方式依賴非官方的公開介面，隨時可能失效", "目前沒有驗證完成的合作商品"],
+    "flow": [
+      "公開討論",
+      "Signal Deck",
+      "人工審查",
+      "內容需求"
+    ],
+    "limits": [
+      "採集方式依賴非官方的公開介面，隨時可能失效",
+      "目前沒有驗證完成的合作商品"
+    ],
     "links": [
-      { "label": "品牌網站", "href": "https://next-stop-live.chungkang.chatgpt.site/" },
-      { "label": "GitHub", "href": "https://github.com/Gabriel-chun/threads-cli-nextstop" }
+      {
+        "label": "品牌網站",
+        "href": "https://next-stop-live.chungkang.chatgpt.site/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Gabriel-chun/threads-cli-nextstop"
+      }
     ]
   },
   {
-    "id": "observer-engine", "code": "CASE-03", "featured": false,
+    "id": "observer-engine",
+    "code": "CASE-03",
+    "featured": false,
     "title": "Observer Engine",
-    "status": "iterate", "statusLabel": "迭代中",
+    "status": "iterate",
+    "statusLabel": "迭代中",
     "domain": "決策研究 · 實戰驗證",
     "question": "如何把實戰中的觀察，變成可以重複使用、也能被核對的決策方法？",
     "method": "牌表輸入 → 對照 Scryfall 核對 → 人工確認 → 保存成不可變的快照。",
@@ -45,10 +75,76 @@
       "來自競技卡牌實戰：MTG Arena Mythic #1、實體 RCQ 資格",
       "跨 MTG、Origins、Hearthstone、Shadowverse、Riftbound 的經驗"
     ],
-    "flow": ["牌表", "Scryfall 核對", "人工確認", "快照"],
-    "limits": ["目前以卡牌為主，其他領域的適用性還沒驗證"],
+    "flow": [
+      "牌表",
+      "Scryfall 核對",
+      "人工確認",
+      "快照"
+    ],
+    "limits": [
+      "目前以卡牌為主，其他領域的適用性還沒驗證"
+    ],
     "links": [
-      { "label": "看工具", "href": "https://observer-engine.gabrielchun336.workers.dev/" }
+      {
+        "label": "看工具",
+        "href": "https://observer-engine.gabrielchun336.workers.dev/"
+      }
+    ]
+  },
+  {
+    "id": "work-information-support",
+    "code": "CASE-04",
+    "featured": false,
+    "title": "Work Information Support",
+    "status": "live",
+    "statusLabel": "Demo",
+    "domain": "工作資訊整理 · Trace",
+    "question": "如何從口語的工作更新，走到可以追蹤的工作狀態？",
+    "method": "保留語境、辨認依賴關係，讓口語更新形成可維護的工作資料。",
+    "evidence": [
+      "線上 Demo 可直接操作"
+    ],
+    "flow": [
+      "口語更新",
+      "辨認依賴",
+      "工作狀態"
+    ],
+    "limits": [
+      "目前是示範版本"
+    ],
+    "links": [
+      {
+        "label": "看 Demo",
+        "href": "https://work-information-support.gabrielchun336.workers.dev/"
+      }
+    ]
+  },
+  {
+    "id": "content-research",
+    "code": "CASE-05",
+    "featured": false,
+    "title": "Content Research",
+    "status": "live",
+    "statusLabel": "Demo",
+    "domain": "內容研究 · Trace",
+    "question": "先自然地說，然後怎麼把事情接回脈絡？",
+    "method": "用可讀的狀態視角，理解不同工作線目前在哪裡。",
+    "evidence": [
+      "線上 Demo 可直接操作"
+    ],
+    "flow": [
+      "自然口述",
+      "接回脈絡",
+      "狀態視角"
+    ],
+    "limits": [
+      "目前是示範版本"
+    ],
+    "links": [
+      {
+        "label": "看 Demo",
+        "href": "https://content-research-demo.gabrielchun336.workers.dev/"
+      }
     ]
   }
 ]
