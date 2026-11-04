@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work · Gabriel Chun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body data-page="work">
+<main class="wrap">
+  <div class="page-head"><p class="eyebrow">Work · 案例</p><h1 class="serif">問題 → 方法 → 證據</h1>
+  <p>每個案例都標出它現在的狀態、用了什麼方法，以及哪些地方還沒驗證。</p></div>
+  <div class="cases" id="list" style="padding-bottom:80px"><p class="loading">讀取案例…</p></div>
+</main>
+<script type="module">
+import { load, caseCard, fail } from '/assets/site.js';
+const el = document.getElementById('list');
+load('cases.json').then(cs => el.innerHTML = cs.map(caseCard).join('')).catch(e => fail(el, e));
+</script>
+</body>
+</html>

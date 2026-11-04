@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Gabriel Chun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-bottom:72px}
+.lens{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.lens li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:100px 1fr;gap:16px;font-size:15px}
+.lens li b{color:var(--accent);font-weight:500}
+.lens li span{color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink)}
+.step{padding:18px 16px 0 0}.step .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.step h3{font-size:17px;margin:4px 0 6px}.step p{font-size:14px;color:var(--muted);margin:0}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:24px}.steps{grid-template-columns:1fr}.lens li{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body data-page="about">
+<main class="wrap">
+  <div class="page-head"><p class="eyebrow">About</p><h1 class="serif">研究驅動的設計工作者。</h1>
+  <p>我通常不是從「今天要發什麼」開始，而是從「我發現了什麼問題」開始。</p></div>
+  <div class="about">
+    <div><p>我習慣用幾個不同的視角觀察同一件事。這些視角在我的工作系統裡持續累積；對外，我用問題、案例和成果來說明它們。</p>
+    <p>我在意的是：讓觀察留下來源、讓判斷可以被回看，讓人更清楚自己在做什麼、為什麼做，以及下一步怎麼決定。</p></div>
+    <ul class="lens" id="lens"></ul>
+  </div>
+  <section class="block">
+    <p class="eyebrow">How we'd work</p><h2 class="serif" style="font-size:clamp(24px,3vw,32px);margin:0 0 28px">先讓你看到我怎麼處理問題。</h2>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>觀察問題</h3><p>從研究、實戰與專案中找出值得討論的問題。</p></div>
+      <div class="step"><div class="n">02</div><h3>公開研究</h3><p>寫下問題定義、來源、判斷與未驗證的假設。</p></div>
+      <div class="step"><div class="n">03</div><h3>小型原型</h3><p>用互動 Demo 或流程圖展示一種可能的解法。</p></div>
+      <div class="step"><div class="n">04</div><h3>發表案例</h3><p>把方法、示範與限制整理成完整案例。</p></div>
+      <div class="step"><div class="n">05</div><h3>深入合作</h3><p>和遇到類似問題的人討論是否往下做。</p></div>
+    </div>
+  </section>
+  <section class="block" style="padding-bottom:96px">
+    <p class="eyebrow">Work together</p><h2 class="serif" style="font-size:clamp(26px,3.6vw,40px);margin:0 0 14px;line-height:1.35">你手上有一個資訊太多、判斷太散的問題嗎？</h2>
+    <p class="muted" style="max-width:36em">研究流程、知識系統、AI 工作流程或原型驗證都可以聊。</p>
+    <div class="btns"><a class="btn primary" href="https://github.com/Gabriel-chun" rel="noopener">GitHub</a></div>
+  </section>
+</main>
+<script type="module">
+import { load, esc } from '/assets/site.js';
+load('ideas.json').then(d => document.getElementById('lens').innerHTML = d.lenses.map(l => `<li><b>${esc(l.label)}</b><span>${esc(l.desc)}</span></li>`).join(''));
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabriel Chun · Personal Studio</title>
+<meta name="description" content="研究驅動的設計工作：把複雜的問題，轉化成能被理解與使用的系統。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;padding-top:72px;padding-bottom:64px;align-items:start}
+.hero h1{font-size:clamp(32px,4.2vw,50px);line-height:1.28;margin:0 0 22px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{color:var(--muted);font-size:17px;margin:0 0 28px;max-width:30em}
+.claim{margin:36px 0 0;padding:16px 0 0;border-top:1px solid var(--line);font-size:15px}
+.claim b{color:var(--accent);font-weight:500}
+.hero-copy{position:sticky;top:96px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:32px;padding-top:48px}.hero-copy{position:static}}
+</style>
+</head>
+<body data-page="home">
+<main>
+  <div class="hero">
+    <canvas id="bg-particles" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Observe / Structure / Build</p>
+        <h1 class="serif">把複雜的問題，<br>轉化成<em>能被理解與使用</em>的系統。</h1>
+        <p class="lead">我做研究、知識轉譯、互動設計與 AI 工作流程。右邊是我正在追蹤的想法：它們從哪個視角出發、走到哪一步、最後長成了什麼。</p>
+        <div class="btns"><a class="btn primary" href="/work/">看案例</a><a class="btn ghost" href="/about/">一起討論問題</a></div>
+        <p class="claim">我不只替你整理好內容，<b>而是設計一套你之後能自己處理資訊的方法。</b></p>
+      </div>
+      <div id="graph"><p class="loading">讀取想法圖…</p></div>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head"><div><p class="eyebrow">Selected Work</p><h2 class="serif">每個案例，都從一個問題開始。</h2></div><a class="more" href="/work/">全部案例 →</a></div>
+      <div class="cases two" id="featured"><p class="loading">讀取案例…</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head"><div><p class="eyebrow">Idea Log</p><h2 class="serif">想法日誌</h2></div><a class="more" href="/writing/">全部札記 →</a></div>
+      <ul class="log" id="log"><li class="loading">讀取札記…</li></ul>
+    </div>
+  </section>
+</main>
+<script type="module">
+import { load, caseCard, logItem, fail } from '/assets/site.js';
+import { mountIdeaGraph, mountBackground } from '/assets/idea-graph.js';
+mountBackground(document.getElementById('bg-particles'));
+const g = document.getElementById('graph');
+load('ideas.json').then(d => mountIdeaGraph(g, d)).catch(e => fail(g, e));
+const f = document.getElementById('featured');
+load('cases.json').then(cs => f.innerHTML = cs.filter(c => c.featured).map(caseCard).join('')).catch(e => fail(f, e));
+const l = document.getElementById('log');
+Promise.all([load('writing.json'), load('ideas.json')]).then(([ws, d]) => l.innerHTML = ws.slice(0, 3).map(w => logItem(w, d.ideas)).join('')).catch(e => fail(l, e));
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>札記 · Gabriel Chun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.article{max-width:680px;margin:0 auto;padding-bottom:80px}
+.article .body{font-size:17px;line-height:1.95}
+.article .body h2{font-family:"Noto Serif TC",serif;font-size:24px;margin:40px 0 12px}
+.article .body blockquote{margin:24px 0;padding-left:18px;border-left:2px solid var(--accent);color:var(--muted)}
+</style>
+</head>
+<body data-page="writing">
+<main class="wrap"><div class="article" id="main"><p class="loading" style="padding-top:72px">讀取札記…</p></div></main>
+<script type="module">
+import { load, esc, fail, STATUS } from '/assets/site.js';
+const el = document.getElementById('main');
+const id = new URLSearchParams(location.search).get('id');
+// 極簡 Markdown：標題、段落、引用、清單、粗體、連結。
+const md = s => esc(s).split(/\n{2,}/).map(b => {
+  const inl = t => t.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\[(.+?)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" rel="noopener">$1</a>');
+  if (/^## /.test(b)) return `<h2>${inl(b.slice(3))}</h2>`;
+  if (/^&gt; /.test(b)) return `<blockquote>${inl(b.replace(/^&gt; /gm, ''))}</blockquote>`;
+  if (/^- /.test(b)) return `<ul>${b.split('\n').map(x => `<li>${inl(x.replace(/^- /, ''))}</li>`).join('')}</ul>`;
+  return `<p>${inl(b).replace(/\n/g, '<br>')}</p>`;
+}).join('');
+Promise.all([load('writing.json'), load('ideas.json')]).then(async ([ws, d]) => {
+  const w = ws.find(x => x.id === id);
+  if (!w) { el.innerHTML = '<div class="page-head"><h1 class="serif">找不到這篇札記。</h1><p><a href="/writing/">回到札記</a></p></div>'; return; }
+  document.title = w.title + ' · Gabriel Chun';
+  const idea = d.ideas.find(i => i.id === w.idea);
+  const body = w.file ? md(await load('writing/' + w.file)) : `<p class="muted">這篇還在撰寫中。它源自的想法目前狀態是「${esc(STATUS[w.status])}」，寫好後會出現在這裡。</p>`;
+  el.innerHTML = `<div class="page-head"><p class="eyebrow">${esc(w.category)} · ${esc(w.date)}</p><h1 class="serif">${esc(w.title)}</h1>
+    ${idea ? `<p>源自想法：<span class="chip"><span class="dot s-${esc(idea.status)}"></span>${esc(idea.label)}</span></p>` : ''}</div>
+    <div class="body">${body}</div>`;
+}).catch(e => fail(el, e));
+</script>
+</body>
+</html>

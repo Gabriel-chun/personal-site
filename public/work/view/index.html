@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>案例 · Gabriel Chun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.detail{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:48px;padding-bottom:80px}
+.detail h2{font-size:14px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:500;margin:36px 0 10px}
+.detail ul{padding-left:1.2em;margin:0} .detail li{margin-bottom:6px}
+.side{border-left:1px solid var(--line);padding-left:24px;font-size:14px}
+.side .flow{padding:0;flex-direction:column;align-items:flex-start;gap:6px}
+.side .flow i{display:none}
+@media (max-width:820px){.detail{grid-template-columns:1fr}.side{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:16px}}
+</style>
+</head>
+<body data-page="work">
+<main class="wrap" id="main"><p class="loading" style="padding-top:72px">讀取案例…</p></main>
+<script type="module">
+import { load, esc, fail, STATUS } from '/assets/site.js';
+const el = document.getElementById('main');
+const id = new URLSearchParams(location.search).get('id');
+Promise.all([load('cases.json'), load('ideas.json')]).then(([cs, d]) => {
+  const c = cs.find(x => x.id === id);
+  if (!c) { el.innerHTML = '<div class="page-head"><h1 class="serif">找不到這個案例。</h1><p><a href="/work/">回到案例列表</a></p></div>'; return; }
+  document.title = c.title + ' · Gabriel Chun';
+  const rel = d.ideas.filter(i => i.outcomes.includes(c.id));
+  el.innerHTML = `<div class="page-head"><p class="eyebrow">${esc(c.code)} · ${esc(c.domain)}</p>
+    <h1 class="serif">${esc(c.title)}</h1><p><span class="chip"><span class="dot ${esc(c.status)}"></span>${esc(c.statusLabel)}</span></p></div>
+    <div class="detail"><div>
+      <h2>Question</h2><p class="serif" style="font-size:22px;line-height:1.6;margin:0">${esc(c.question)}</p>
+      <h2>Method</h2><p>${esc(c.method)}</p>
+      <h2>Evidence</h2><ul>${c.evidence.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      <h2>Limits · 尚待驗證</h2><ul class="muted">${c.limits.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    </div><aside class="side">
+      <p class="eyebrow">Flow</p><div class="flow">${c.flow.map(s => `<span>${esc(s)}</span>`).join('<i></i>')}</div>
+      <p class="eyebrow" style="margin-top:28px">相關想法</p>
+      <ul style="list-style:none;padding:0">${rel.map(i => `<li style="display:flex;gap:8px;align-items:baseline;margin-bottom:8px"><span class="dot s-${esc(i.status)}"></span><span>${esc(i.label)} <span class="muted mono" style="font-size:11px">${esc(STATUS[i.status])}</span></span></li>`).join('')}</ul>
+      ${c.links.length ? `<p class="eyebrow" style="margin-top:28px">Links</p>${c.links.map(l => `<p style="margin:0 0 6px"><a href="${esc(l.href)}" rel="noopener">${esc(l.label)} ↗</a></p>`).join('')}` : ''}
+    </aside></div>`;
+}).catch(e => fail(el, e));
+</script>
+</body>
+</html>

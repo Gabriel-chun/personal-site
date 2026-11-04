@@ -1,0 +1,54 @@
+[
+  {
+    "id": "control-room", "code": "CASE-01", "featured": true,
+    "title": "Control Room",
+    "status": "live", "statusLabel": "運作中",
+    "domain": "知識系統 · 互動設計",
+    "question": "如何讓碎片化的研究與決策，在不用一直盯著的情況下持續累積？",
+    "method": "工具入口、專案全域總覽（快照時間軸、閱讀路徑、關聯圖）、用五個視角延續日常想法的角色層，三頁共用同一個工作空間。",
+    "evidence": [
+      "私人資料只存在本機瀏覽器（Local-first），公開網站不當資料庫",
+      "AI 推論在本人確認前一律標示「待確認」",
+      "設計規範與色票公開記錄在 README／DesignMD"
+    ],
+    "flow": ["工具入口", "全域總覽", "角色延續"],
+    "limits": ["個人工作系統，尚未在其他人或團隊身上驗證", "公開版本只展示設計，不含真實私人資料"],
+    "links": []
+  },
+  {
+    "id": "next-stop-live", "code": "CASE-02", "featured": true,
+    "title": "Next Stop Live",
+    "status": "explore", "statusLabel": "研究探索",
+    "domain": "資料研究 · 內容策略",
+    "question": "去看下一場演出之前，樂迷真正需要知道什麼？",
+    "method": "從公開的 Threads 演唱會討論開始：清洗、去重、每日 Signal Deck、人工標記相關／不相關，再回推散場交通、跨城移動、住宿等真實需求。",
+    "evidence": [
+      "刻意只用 演唱會／演唱会／concert 三個查詢詞，城市與場館在採集後才重新整理",
+      "不登入、不繞過 CAPTCHA、不用代理；也明說這不是官方 API",
+      "事故、修正與 code review 都公開記錄在 CHANGELOG"
+    ],
+    "flow": ["公開討論", "Signal Deck", "人工審查", "內容需求"],
+    "limits": ["採集方式依賴非官方的公開介面，隨時可能失效", "目前沒有驗證完成的合作商品"],
+    "links": [
+      { "label": "品牌網站", "href": "https://next-stop-live.chungkang.chatgpt.site/" },
+      { "label": "GitHub", "href": "https://github.com/Gabriel-chun/threads-cli-nextstop" }
+    ]
+  },
+  {
+    "id": "observer-engine", "code": "CASE-03", "featured": false,
+    "title": "Observer Engine",
+    "status": "iterate", "statusLabel": "迭代中",
+    "domain": "決策研究 · 實戰驗證",
+    "question": "如何把實戰中的觀察，變成可以重複使用、也能被核對的決策方法？",
+    "method": "牌表輸入 → 對照 Scryfall 核對 → 人工確認 → 保存成不可變的快照。",
+    "evidence": [
+      "來自競技卡牌實戰：MTG Arena Mythic #1、實體 RCQ 資格",
+      "跨 MTG、Origins、Hearthstone、Shadowverse、Riftbound 的經驗"
+    ],
+    "flow": ["牌表", "Scryfall 核對", "人工確認", "快照"],
+    "limits": ["目前以卡牌為主，其他領域的適用性還沒驗證"],
+    "links": [
+      { "label": "看工具", "href": "https://observer-engine.gabrielchun336.workers.dev/" }
+    ]
+  }
+]
